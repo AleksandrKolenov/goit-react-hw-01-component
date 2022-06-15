@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'; 
-
+import { List, Description, Avatar, Name, Tag, Stats, Item } from './Profile.styled';
 export default function Profile({
   username,
   tag,
@@ -8,29 +8,30 @@ export default function Profile({
   stats: { followers, views, likes },
 }) {
   return (
-    <div class="profile">
-      <div class="description">
-        <img src={avatar} alt={username} class="avatar" />
-        <p class="name">{username}</p>
-        <p class="tag">@{tag}</p>
-        <p class="location">{location}</p>
-      </div>
+    <List>
+      
+      <Description>
+        <Avatar src={avatar} alt={username} class="avatar" />
+        <Name>{username}</Name>
+        <Tag>@{tag}</Tag>
+        <Tag>{location}</Tag>
+      </Description>
 
-      <ul class="stats">
-        <li>
+      <Stats>
+        <Item>
           <span class="label">Followers</span>
           <span class="quantity">{followers}</span>
-        </li>
-        <li>
+        </Item>
+        <Item>
           <span class="label">Views</span>
           <span class="quantity">{views}</span>
-        </li>
-        <li>
+        </Item>
+        <Item>
           <span class="label">Likes</span>
           <span class="quantity">{likes}</span>
-        </li>
-      </ul>
-    </div>
+        </Item>
+      </Stats>
+    </List>
   );
 };
 
